@@ -41,10 +41,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun initListeners() {
         adapter.setOnItemClickListener {
-            val bundle = Bundle()
-            bundle.putString("name", it.name)
-            bundle.putString("phone", it.phone)
-            findNavController().navigate(R.id.action_homeFragment_to_infoFragment, bundle)
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToInfoFragment(
+                    it.name, it.phone
+                )
+            )
+
         }
     }
 
